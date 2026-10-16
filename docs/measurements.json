@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-16T17:05:55.854Z",
+  "environment": {
+    "platform": "darwin",
+    "arch": "arm64",
+    "node": "v24.20.0",
+    "server": "http://127.0.0.1:5173",
+    "transport": "HTTP snapshots, one request per client every 100ms, D1 local emulator",
+    "network": "Same-machine loopback; not a physical LAN or WAN",
+    "clients": 10,
+    "controls": 40,
+    "samples": 400
+  },
+  "propagationMs": {
+    "p50": 60,
+    "p95": 114,
+    "p99": 200,
+    "max": 200
+  },
+  "definition": "Wall time from issuing an HTTP playback command to a polling client receiving its authoritative playback revision. Includes command request and snapshot read. Excludes HTML media rendering.",
+  "pollCounts": [
+    104,
+    104,
+    104,
+    104,
+    104,
+    104,
+    104,
+    104,
+    104,
+    104
+  ],
+  "errors": 0,
+  "checks": [
+    "10 concurrent clients",
+    "400 command deliveries",
+    "concurrent join",
+    "concurrent chat without lost updates",
+    "stale playback rejected",
+    "duplicate command idempotency",
+    "host-only authorization",
+    "cross-origin rejection",
+    "shared queue",
+    "10 unique poll votes",
+    "late join",
+    "session resume",
+    "host transfer"
+  ],
+  "target": {
+    "p95Ms": 250,
+    "passed": true
+  },
+  "limitations": [
+    "Loopback baseline only: physical LAN acceptance test still required.",
+    "Browser media drift requires separate playback measurements; core simulation is not a media-decoder measurement.",
+    "Cloud deployment latency depends on geographic placement and is not guaranteed by this local measurement."
+  ]
+}
